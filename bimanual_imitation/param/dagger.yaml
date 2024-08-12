@@ -1,0 +1,41 @@
+tasks:
+  - env: quad_insert_a0o0
+    cuts_off_on_success: true
+    data_subsamp_freq: 1
+  - env: quad_insert_aLoL
+    cuts_off_on_success: true
+    data_subsamp_freq: 1
+  - env: quad_insert_aMoM
+    cuts_off_on_success: true
+    data_subsamp_freq: 1
+
+training:
+  full_dataset_num_trajs: 200
+  dataset_num_trajs: [200] # This doesn't get used for DAgger
+  deterministic_expert: false
+  runs: 10
+
+params:
+  dagger_lr: 5e-05
+  obsnorm_mode: none
+  policy_n_layers: 3
+  policy_n_units: 512
+  policy_layer_type: tanh
+  continuous_policy_type: Gaussian
+  deterministic_eval: false
+  dagger_minibatch_size: 256
+  dagger_num_epochs: 64
+  dagger_beta_start: 1.0
+  dagger_beta_decay: 0.95
+  min_total_sa: 1
+  bclone_l1_lambda: 1e-6
+  bclone_l2_lambda: 1e-4
+
+options:
+  max_iter: 40
+  num_evals: 10
+  num_rollouts_per_eval: 10
+  snapshot_save_freq: 4
+  print_freq: 1
+  validation_eval_freq: 4
+  export_data: true

@@ -1,0 +1,129 @@
+
+spaces:
+  ur5left_space:
+    observation_space:
+      - delta_target_six_dof
+      - delta_target_pos
+      - delta_pos_quad_peg_left_cbrt
+      - grip_force_ewma
+      - grip_torque_ewma
+    action_space:
+      - delta_six_dof
+      - delta_position
+  
+  ur5right_space:
+    observation_space:
+      - delta_target_six_dof
+      - delta_target_pos
+      - delta_pos_quad_peg_right_cbrt
+      - grip_force_ewma
+      - grip_torque_ewma
+    action_space:
+      - delta_six_dof
+      - delta_position
+
+devices:
+  ur5left:
+    space: ur5left_space
+    lookahead_gain: 0.0
+    lookahead_dist: 0.08
+
+    gripper_idx: 14
+    gripper_reset_action: close
+    gripper_step_action: close
+    
+    open_gripper_force: -0.08
+    close_gripper_force: 0.15
+    
+    x_noise_init: null # [-0.05, 0.05]
+    y_noise_init: null # [0.0, 0.1]
+    z_noise_init: null # [0.0, 0.1]
+
+    yaw_noise_deg_init:   null # [-20, 20]
+    pitch_noise_deg_init: null # [-20, 20]
+    roll_noise_deg_init:  null # [0 ,0]
+
+    noise_file: quad_insert_noise.yaml
+    action_noise: medium
+    observation_noise: medium
+    
+    x_bounds: null
+    y_bounds: null
+    z_bounds: null
+    enforce_xyz_bounds: False
+
+    expert_target_speed: null
+    expert_target_speed_noise: null
+    
+    delta_x_bounds: [-3.0, 3.0]
+    delta_y_bounds: [-3.0, 3.0]
+    delta_z_bounds: [-3.0, 3.0]
+    enforce_delta_xyz_bounds: False
+
+    ewma_alpha: 0.05
+  
+  ur5right:
+    space: ur5right_space    
+    lookahead_gain: 0.0
+    lookahead_dist: 0.08
+    
+    gripper_idx: 7
+    gripper_reset_action: close
+    gripper_step_action: close
+    
+    open_gripper_force: -0.08
+    close_gripper_force: 0.15
+    
+    x_noise_init: null # [-0.05, 0.05]
+    y_noise_init: null # [0.0, 0.1]
+    z_noise_init: null # [0.0, 0.1]
+
+    yaw_noise_deg_init:   null # [-20, 20]
+    pitch_noise_deg_init: null # [-20, 20]
+    roll_noise_deg_init:  null # [0 ,0]
+
+    noise_file: quad_insert_noise.yaml
+    action_noise: medium
+    observation_noise: medium
+
+    x_bounds: null
+    y_bounds: null
+    z_bounds: null
+    enforce_xyz_bounds: False
+
+    expert_target_speed: null
+    expert_target_speed_noise: null
+    
+    delta_x_bounds: [-3.0, 3.0]
+    delta_y_bounds: [-3.0, 3.0]
+    delta_z_bounds: [-3.0, 3.0]
+    enforce_delta_xyz_bounds: False
+
+    ewma_alpha: 0.05
+
+run_config:
+  pursuit_type: simple
+  expert:
+    num_samples: null # = 33*T (T = avg sim time for expert)
+    rand_num_samples_lower_scale: 0.6
+    rand_num_samples_upper_scale: 1.4
+    min_T: 0.5
+    path_pursuit:
+      p_gain: 50
+      i_gain: 0.5
+      d_gain: 5
+      i_min: -0.5
+      i_max: 0.5
+    insert_pursuit:
+      pre_p_gain: [10, 10, 1]  # Prioritize x/y errors
+      p_gain: 10
+      i_gain: 0.01
+      d_gain: 0.5
+      i_min: -0.5
+      i_max: 0.5
+  path_env:
+    reward_time_penalty: -1
+    reward_pos_scale: 10
+    reward_quat_scale: 10
+    done_pos_tol: 0.02
+    done_quat_tol: 0.05

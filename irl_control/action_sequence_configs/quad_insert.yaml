@@ -1,0 +1,79 @@
+device_config:
+    devices: ["base", "ur5left", "ur5right"]
+    controllers: ["base_osc", "arm_osc", "arm_osc"]
+    control_type: ["joint", "task", "task"]
+
+action_objects:
+    male_object:
+        joint_name: "free_joint_quad_grommet"
+        hover_offset: [[0,0,0], [0.0, 0.32, 0.3], [-0.0, -0.17, 0.3]]
+        hover2_offset: [[0,0,0], [0.0, 0.32, 0.195], [-0.0, -0.17, 0.19]]
+        hover3_offset: [[0,0,0], [0.0, 0.32, 0.27], [-0.0, -0.17, 0.27]]
+        grip_offset: [[0,0,0], [0.33, 0.26, 0.19], [0.59, -0.16, 0.19]]
+        initial_pos_xyz: [0.5, 0.2, 0.0]
+        initial_pos_quat: [1.0, 0, 0, 0.3]
+        grip_yaw: 90
+    female_object: 
+        joint_name: "free_joint_quad_peg"
+        hover_offset: [[0,0,0], [0.0, 0.32, 0.3], [0.0, -0.17, 0.3]]
+        hover2_offset: [[0,0,0], [0.0, 0.32, 0.2], [0.0, -0.17, 0.2]]
+        initial_pos_xyz: [0.1, 0.7, 0.0]
+        initial_pos_quat: [1.0, 0, 0, 1.0]
+        grip_yaw: 90
+
+pickup_sequence:
+    # Hover above the male object
+    -   action: WP
+        target_xyz: [[0,0,0], male_object.hover_offset, male_object.hover_offset]
+        target_quat: [[1,0,0,0], male_object, male_object]
+        name: Initialization
+        max_error: 0.05
+    # Open gripper for 1 second
+    -   action: GRIP
+        gripper_force: -0.1
+        gripper_duration: 0.1
+        name: Open-Grippers
+    # Go above the handles
+    -   action: WP
+        target_xyz: [[0,0,0], male_object.hover2_offset, male_object.hover2_offset]
+        target_quat: [[1,0,0,0], male_object, male_object]
+        name: Pre-Grasp-Hover
+        max_error: 0.05
+    # Close gripper for 2 second
+    -   action: GRIP
+        gripper_force: 0.1
+        gripper_duration: 5.0
+        name: Close-Grippers
+    # Go above the handles
+    -   action: WP
+        target_xyz: [[0,0,0], male_object.hover3_offset, male_object.hover3_offset]
+        target_quat: [[1,0,0,0], male_object, male_object]
+        name: Lift-Object
+        gripper_force: 0.2
+        max_error: 0.05
+        noise: [0.0, 0.005]
+
+
+demo_sequence:
+    # Hover above the female object
+    -   action: WP
+        target_xyz: [female_object.hover_offset, female_object.hover_offset, female_object.hover_offset] # [[0,0,0], [-0.225, 0.59, 0.3], [0.275, 0.59, 0.3]]
+        target_quat: [[1,0,0,0], male_object, male_object]
+        name: Transfer
+        gripper_force: 0.2
+        max_error: 0.05
+        # steps: 3
+        noise: [0.0, 0.001]
+
+release_sequence:
+    # Open gripper for 1 second
+    -   action: GRIP
+        gripper_force: -0.1
+        gripper_duration: 2.0
+        name: Open-Grippers
+    # Hover Over
+    -   action: WP
+        target_xyz: [[0,0,0], [-0.2, 0.6, 0.3], [0.3, 0.6, 0.3]]
+        target_quat: [[1.0, 0, 0, 0], [0.707, 0.707, -0.707, 0.707], [0.707, 0.707, -0.707, 0.707]]
+        name: Dummy
+        max_error: 0.05

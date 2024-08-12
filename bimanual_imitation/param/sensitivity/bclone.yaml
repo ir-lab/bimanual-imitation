@@ -1,0 +1,28 @@
+tasks:
+  - env: quad_insert_a0o0
+    cuts_off_on_success: true
+    data_subsamp_freq: 1
+
+training:
+  full_dataset_num_trajs: 200
+  dataset_num_trajs: [200]
+  deterministic_expert: false
+  runs: 1
+
+param_min_max_vals:
+  bclone_lr: [4.25e-04, 5.75e-04] # 5e-04
+  obsnorm_mode: [none, expertdata] # expertdata
+  policy_n_units: [435, 589] # 512
+  policy_layer_type: [tanh, relu] # tanh
+  bclone_l1_lambda: [8.5e-05, 1.15e-04] # 1e-04
+  bclone_l2_lambda: [8.5e-05, 1.15e-04] # 1e-04
+  bclone_batch_size: [109, 147] # 128
+
+options:
+  max_iter: 100_000
+  num_evals: 10
+  num_rollouts_per_eval: 10
+  snapshot_save_freq: 10_000
+  print_freq: 1000
+  validation_eval_freq: 10_000
+  export_data: true

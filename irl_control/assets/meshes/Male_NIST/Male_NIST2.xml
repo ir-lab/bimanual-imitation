@@ -1,0 +1,33 @@
+<?xml version="1.0" ?>
+<mujoco>
+   <asset>
+      <mesh name="Male_NIST_007"   file="Male_NIST/Male_NIST_007.stl" scale="0.8 0.8 0.8"/>
+      <mesh name="Male_NIST_002"   file="Male_NIST/Male_NIST_002.stl" scale="0.8 0.8 0.8"/>
+      <mesh name="Male_NIST_006C" file="Male_NIST/Male_NIST_006C.stl" scale="0.8 0.8 0.8"/>
+      <mesh name="Male_NIST_005C" file="Male_NIST/Male_NIST_005C.stl" scale="0.8 0.8 0.8"/>
+      <mesh name="Male_NIST_006"   file="Male_NIST/Male_NIST_006.stl" scale="0.8 0.8 0.8"/>
+      <mesh name="Male_NIST_003"   file="Male_NIST/Male_NIST_003.stl" scale="0.8 0.8 0.8"/>
+      <mesh name="Male_NIST_004"   file="Male_NIST/Male_NIST_004.stl" scale="0.8 0.8 0.8"/>
+      <mesh name="Male_NIST_001"   file="Male_NIST/Male_NIST_001.stl" scale="0.8 0.8 0.8"/>
+      <mesh name="Male_NIST_007C" file="Male_NIST/Male_NIST_007C.stl" scale="0.8 0.8 0.8"/>
+      <mesh name="Male_NIST_005"   file="Male_NIST/Male_NIST_005.stl" scale="0.8 0.8 0.8"/>
+      <mesh name="Male_NIST_003C" file="Male_NIST/Male_NIST_003C.stl" scale="0.8 0.8 0.8"/>
+   </asset>
+   <worldbody>
+      <body name="nist_male" pos="0.4 0.6 -0.0515" quat="0.966 0 0 0.259">
+         <freejoint name="free_joint_male"/>
+         <inertial pos="0 0 0" mass="0.01" diaginertia="0.0001 0.0001 0.0001"/>
+         <geom name="Male_NIST_007"   type="mesh" mesh="Male_NIST_007"   pos="0 0 0" conaffinity="1" contype="1" solimp="0.99 0.99 0.01" solref="0.01 1" condim="4" friction="3 3 100"/>
+         <geom name="Male_NIST_002"   type="mesh" mesh="Male_NIST_002"   pos="0 0 0" conaffinity="1" contype="1" solimp="0.99 0.99 0.01" solref="0.01 1" condim="4" friction="3 3 100"/>
+         <geom name="Male_NIST_006C"  type="mesh" mesh="Male_NIST_006C"  pos="0 0 0" conaffinity="1" contype="1" solimp="0.99 0.99 0.01" solref="0.01 1" condim="4" friction="3 3 100"/>
+         <geom name="Male_NIST_005C"  type="mesh" mesh="Male_NIST_005C"  pos="0 0 0" conaffinity="1" contype="1" solimp="0.99 0.99 0.01" solref="0.01 1" condim="4" friction="3 3 100"/>
+         <geom name="Male_NIST_006"   type="mesh" mesh="Male_NIST_006"   pos="0 0 0" conaffinity="1" contype="1" solimp="0.99 0.99 0.01" solref="0.01 1" condim="4" friction="3 3 100"/>
+         <geom name="Male_NIST_003"   type="mesh" mesh="Male_NIST_003"   pos="0 0 0" conaffinity="1" contype="1" solimp="0.99 0.99 0.01" solref="0.01 1" condim="4" friction="3 3 100"/>
+         <geom name="Male_NIST_004"   type="mesh" mesh="Male_NIST_004"   pos="0 0 0" conaffinity="1" contype="1" solimp="0.99 0.99 0.01" solref="0.01 1" condim="4" friction="3 3 100"/>
+         <geom name="Male_NIST_001"   type="mesh" mesh="Male_NIST_001"   pos="0 0 0" conaffinity="1" contype="1" solimp="0.99 0.99 0.01" solref="0.01 1" condim="4" friction="3 3 100"/>
+         <geom name="Male_NIST_007C"  type="mesh" mesh="Male_NIST_007C"  pos="0 0 0" conaffinity="1" contype="1" solimp="0.99 0.99 0.01" solref="0.01 1" condim="4" friction="3 3 100"/>
+         <geom name="Male_NIST_005"   type="mesh" mesh="Male_NIST_005"   pos="0 0 0" conaffinity="1" contype="1" solimp="0.99 0.99 0.01" solref="0.01 1" condim="4" friction="3 3 100"/>
+         <geom name="Male_NIST_003C"  type="mesh" mesh="Male_NIST_003C"  pos="0 0 0" conaffinity="1" contype="1" solimp="0.99 0.99 0.01" solref="0.01 1" condim="4" friction="3 3 100"/>
+      </body>0
+   </worldbody>
+</mujoco>

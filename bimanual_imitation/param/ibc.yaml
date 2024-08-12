@@ -1,0 +1,44 @@
+tasks:
+  - env: quad_insert_a0o0
+    cuts_off_on_success: true
+    data_subsamp_freq: 1
+  - env: quad_insert_aLoL
+    cuts_off_on_success: true
+    data_subsamp_freq: 1
+  - env: quad_insert_aMoM
+    cuts_off_on_success: true
+    data_subsamp_freq: 1
+
+training:
+  full_dataset_num_trajs: 200
+  dataset_num_trajs: [50, 100, 200]
+  deterministic_expert: false
+  runs: 10
+
+params:
+  normalizers_num_batches: 100
+  normalizers_num_samples: 5000
+  num_action_samples: 512
+  use_langevin: true
+  fraction_langevin_samples: 1.0
+  run_full_chain_under_gradient: true
+  langevin_num_iterations: 100
+  dfo_num_iterations: 3
+  use_dfo: false
+  num_counter_examples: 32
+  activation: relu
+  depth: 4
+  dropout_rate: 0.0
+  width: 256
+  batch_size: 512
+  fused_train_steps: 100
+  learning_rate: 1e-4
+  replay_capacity: 10_000
+
+options:
+  max_iter: 150
+  num_evals: 10
+  num_rollouts_per_eval: 10
+  snapshot_save_freq: 15
+  print_freq: 1
+  export_data: true

@@ -1,0 +1,26 @@
+tasks:
+  - env: quad_insert_a0o0
+    cuts_off_on_success: true
+    data_subsamp_freq: 1
+
+training:
+  full_dataset_num_trajs: 200
+  dataset_num_trajs: [200]
+  deterministic_expert: false
+  runs: 1
+
+param_min_max_vals:
+  batch_size: [435, 589] # 512
+  num_diffusion_iters: [85, 115] # 100
+  opt_learning_rate: [0.000085, 0.000115] # 0.0001
+  opt_weight_decay: [0.00000085, 0.00000115] # 0.000001
+  lr_warmup_steps: [425, 575] # 500
+
+options:
+  max_iter: 50
+  num_evals: 10
+  num_rollouts_per_eval: 10
+  snapshot_save_freq: 5
+  print_freq: 1
+  validation_eval_freq: 5
+  export_data: true

@@ -1,0 +1,42 @@
+spaces:
+  path_3D_space:
+    observation_space:
+      - position
+      - delta_position_polar
+    action_space:
+      - delta_position
+
+devices:
+  point_mass:
+    space: path_3D_space
+    lookahead_gain: 0.01
+    lookahead_dist: 0.08
+    
+    x_noise_init: null # [-0.01, 0.01]
+    y_noise_init: null # [-0.01, 0.01]
+    z_noise_init: null # [-0.01, 0.01]
+    
+    x_bounds: null
+    y_bounds: null
+    enforce_xyz_bounds: False
+    
+    delta_x_bounds: null
+    delta_y_bounds: null
+    delta_z_bounds: null
+    enforce_delta_xyz_bounds: False
+    
+    expert_target_speed: 0.8
+    expert_target_speed_noise: [0.0, 0.4]
+    
+run_config:
+  pursuit_type: pure_pursuit
+  expert:
+    min_T: 5.0
+    num_samples: 100
+  
+  path_env:
+    dt: 0.1
+    reward_time_penalty: -1
+    reward_pos_scale: 10
+    done_pos_tol: 0.15
+    done_yaw_tol: 0.25

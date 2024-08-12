@@ -1,0 +1,36 @@
+tasks:
+  - env: quad_insert_a0o0
+    cuts_off_on_success: true
+    data_subsamp_freq: 1
+
+training:
+  full_dataset_num_trajs: 200
+  dataset_num_trajs: [200]
+  deterministic_expert: false
+  runs: 1
+
+param_min_max_vals:
+  reward_lr: [4.25e-05, 5.75e-05] # 5e-05
+  obsnorm_mode: [none, expertdata] # expertdata
+  policy_n_units: [218, 294] # 256
+  policy_layer_type: [tanh, relu] # tanh
+  vf_n_units: [109, 147] # 128
+  vf_layer_type: [tanh, relu] # tanh
+  reward_n_units: [218, 294] # 256
+  reward_layer_type: [tanh, relu] # tanh
+  lam: [0.9, 0.99] # 0.99
+  policy_max_kl: [0.0085, 0.0115] # 0.01
+  policy_cg_damping: [0.255, 0.345] # 0.3
+  vf_max_kl: [0.0085, 0.0115] # 0.01
+  vf_cg_damping: [0.085, 0.115] # 0.1
+  reward_ent_reg_weight: [0.00085, 0.00115] # 0.001
+  policy_ent_reg: [0.00085, 0.00115] # 0.001
+
+options:
+  max_iter: 8000
+  num_evals: 10
+  num_rollouts_per_eval: 10
+  snapshot_save_freq: 400
+  print_freq: 1
+  validation_eval_freq: 400
+  export_data: true

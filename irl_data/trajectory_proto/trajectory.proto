@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package imitation_learning;
+
+message floatList {
+    repeated float value=1;
+}
+
+message multiFloatList {
+    repeated floatList sub_lists=1;
+}
+
+message trajectory {
+    repeated multiFloatList observations=1;
+    repeated multiFloatList actions=2;
+    repeated floatList rewards=3;
+    repeated int32 lengths=4;
+}

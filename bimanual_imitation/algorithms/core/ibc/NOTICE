@@ -1,0 +1,6 @@
+The bimanual_imitation repository provides high-level wrappers and additional functionalities to the original IBC codebase, facilitating easier integration and training.
+Most of the core logic within this folder remains unchanged from the original IBC work, which is licensed under the Apache License 2.0. The original IBC codebase can be found at:
+
+https://github.com/google-research/ibc
+
+You can view the full license terms in the LICENSE file located in that repository, as well as in this current folder.

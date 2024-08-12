@@ -1,0 +1,32 @@
+tasks:
+  - env: quad_insert_a0o0
+    cuts_off_on_success: true
+    data_subsamp_freq: 1
+
+training:
+  full_dataset_num_trajs: 200
+  dataset_num_trajs: [200]
+  deterministic_expert: false
+  runs: 1
+
+param_min_max_vals:
+  normalizers_num_batches: [85, 115] # 100
+  normalizers_num_samples: [4250, 5750] # 5000
+  num_action_samples: [435, 589] # 512
+  fraction_langevin_samples: [0.85, 1.0] # 1.0
+  langevin_num_iterations: [85, 115] # 100
+  num_counter_examples: [27, 36] # 32
+  activation: [relu, tanh] # relu
+  dropout_rate: [0.0, 0.15] # 0.0
+  width: [218, 294] # 256
+  batch_size: [435, 589] # 512
+  learning_rate: [8.5e-5, 1.15e-4] # 1e-4
+  replay_capacity: [8500, 11_500] # 10_000
+ 
+options:
+  max_iter: 150
+  num_evals: 10
+  num_rollouts_per_eval: 10
+  snapshot_save_freq: 15
+  print_freq: 1
+  export_data: true

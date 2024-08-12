@@ -1,0 +1,85 @@
+action_objects:
+  female_object:
+    grip_yaw: 90
+    hover2_offset:
+    - - 0
+      - 0
+      - 0
+    - - 0.0
+      - 0.32
+      - 0.2
+    - - 0.0
+      - -0.17
+      - 0.2
+    hover_offset:
+    - - 0
+      - 0
+      - 0
+    - - 0.0
+      - 0.32
+      - 0.3
+    - - 0.0
+      - -0.17
+      - 0.3
+    initial_pos_quat:
+    - 1.0
+    - 0
+    - 0
+    - 1.0
+    initial_pos_xyz:
+    - 0.1
+    - 0.7
+    - 0.0
+    joint_name: free_joint_quad_peg
+  male_object:
+    grip_offset:
+    - - 0
+      - 0
+      - 0
+    - - 0.33
+      - 0.26
+      - 0.19
+    - - 0.59
+      - -0.16
+      - 0.19
+    grip_yaw: 90
+    hover2_offset:
+    - - 0
+      - 0
+      - 0
+    - - 0.0
+      - 0.32
+      - 0.195
+    - - -0.0
+      - -0.17
+      - 0.19
+    hover3_offset:
+    - - 0
+      - 0
+      - 0
+    - - 0.0
+      - 0.32
+      - 0.32290991442894834
+    - - -0.0
+      - -0.17
+      - 0.32290991442894834
+    hover_offset:
+    - - 0
+      - 0
+      - 0
+    - - 0.0
+      - 0.32
+      - 0.3
+    - - -0.0
+      - -0.17
+      - 0.3
+    initial_pos_quat:
+    - 0.7716
+    - 0.0
+    - 0.0
+    - 0.6361
+    initial_pos_xyz:
+    - 0.635
+    - 0.229
+    - 0.0
+    joint_name: free_joint_quad_grommet

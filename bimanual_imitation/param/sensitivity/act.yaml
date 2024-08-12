@@ -1,0 +1,30 @@
+tasks:
+  - env: quad_insert_a0o0
+    cuts_off_on_success: true
+    data_subsamp_freq: 1
+
+training:
+  full_dataset_num_trajs: 200
+  dataset_num_trajs: [200]
+  deterministic_expert: false
+  runs: 1
+
+param_min_max_vals:
+  batch_size: [218, 294] # 256
+  latent_dim: [7, 9] # 8
+  n_heads: [3, 5] # depends on hidden dim (must be divisible)
+  act_lr: [8.5e-05, 1.15e-04] # 1e-04
+  dropout: [0.085, 0.115] # 0.1
+  hidden_dim: [105, 150] # 128 (values must be divisible by n_heads)
+  dim_feedforward: [435, 589] # 512
+  activation: [relu, gelu] # relu
+  kl_weight: [85, 115] # 100
+
+options:
+  max_iter: 100
+  num_evals: 10
+  num_rollouts_per_eval: 10
+  snapshot_save_freq: 10
+  print_freq: 1
+  validation_eval_freq: 10
+  export_data: true

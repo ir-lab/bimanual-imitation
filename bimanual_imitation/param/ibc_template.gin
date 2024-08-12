@@ -1,0 +1,149 @@
+# Parameters for _get_feature_encoder:
+# ==============================================================================
+# None.
+
+# Parameters for _get_feature_parser:
+# ==============================================================================
+# None.
+
+# Parameters for ArraySpec:
+# ==============================================================================
+# None.
+
+# Parameters for BoundedArraySpec:
+# ==============================================================================
+# None.
+
+# Parameters for compute_dataset_statistics:
+# ==============================================================================
+compute_dataset_statistics.min_max_actions = True
+compute_dataset_statistics.use_sqrt_std = False
+
+# Parameters for get_normalizers:
+# ==============================================================================
+get_normalizers.nested_actions = False
+get_normalizers.nested_obs = False
+get_normalizers.num_batches = {normalizers_num_batches}
+get_normalizers.num_samples = {normalizers_num_samples}
+
+# Parameters for GreedyPolicy:
+# ==============================================================================
+GreedyPolicy.name = None
+
+# Parameters for HistoryWrapper:
+# ==============================================================================
+HistoryWrapper.include_actions = False
+
+# Parameters for IbcPolicy:
+# ==============================================================================
+IbcPolicy.again_stepsize_final = 1e-05
+IbcPolicy.again_stepsize_init = 0.1
+IbcPolicy.clip = True
+IbcPolicy.inference_langevin_noise_scale = 1.0
+IbcPolicy.info_spec = ()
+IbcPolicy.name = None
+IbcPolicy.num_action_samples = {num_action_samples}
+IbcPolicy.optimize_again = False
+IbcPolicy.policy_state_spec = ()
+IbcPolicy.training = False
+IbcPolicy.use_dfo = {use_dfo}
+IbcPolicy.use_langevin = {use_langevin}
+
+# Parameters for ImplicitBCAgent:
+# ==============================================================================
+ImplicitBCAgent.add_grad_penalty = True
+ImplicitBCAgent.compute_mse = True
+ImplicitBCAgent.debug_summaries = False
+ImplicitBCAgent.ebm_loss_type = 'info_nce'
+ImplicitBCAgent.fraction_dfo_samples = 0.0
+ImplicitBCAgent.fraction_langevin_samples = {fraction_langevin_samples}
+ImplicitBCAgent.grad_norm_type = 'inf'
+ImplicitBCAgent.late_fusion = False
+ImplicitBCAgent.name = None
+ImplicitBCAgent.num_counter_examples = {num_counter_examples}
+ImplicitBCAgent.return_full_chain = True
+ImplicitBCAgent.run_full_chain_under_gradient = {run_full_chain_under_gradient}
+ImplicitBCAgent.softmax_temperature = 1.0
+ImplicitBCAgent.summarize_grads_and_vars = False
+
+# Parameters for langevin_actions_given_obs:
+# ==============================================================================
+langevin_actions_given_obs.apply_exp = False
+langevin_actions_given_obs.delta_action_clip = 0.1
+langevin_actions_given_obs.grad_clip = None
+langevin_actions_given_obs.grad_norm_type = 'inf'
+langevin_actions_given_obs.late_fusion = False
+langevin_actions_given_obs.num_iterations = {langevin_num_iterations}
+langevin_actions_given_obs.return_chain = False
+langevin_actions_given_obs.sampler_stepsize_decay = 0.8
+langevin_actions_given_obs.sampler_stepsize_final = 1e-05
+langevin_actions_given_obs.sampler_stepsize_init = 0.1
+langevin_actions_given_obs.sampler_stepsize_power = 2.0
+langevin_actions_given_obs.stop_chain_grad = True
+langevin_actions_given_obs.use_polynomial_rate = True
+
+# Parameters for iterative_dfo:
+# ==============================================================================
+iterative_dfo.num_iterations = {dfo_num_iterations}
+
+# Parameters for Learner:
+# ==============================================================================
+Learner.after_train_strategy_step_fn = None
+Learner.experience_dataset_options = None
+Learner.max_checkpoints_to_keep = 3
+Learner.strategy_run_options = None
+Learner.use_kwargs_in_agent_train = False
+Learner.use_reverb_v2 = False
+
+# Parameters for load:
+# ==============================================================================
+load.discount = 1.0
+load.env_wrappers = ()
+load.gym_env_wrappers = ()
+load.gym_kwargs = None
+load.max_episode_steps = None
+load.render_kwargs = None
+load.spec_dtype_map = None
+
+# Parameters for MLPEBM:
+# ==============================================================================
+MLPEBM.activation = '{activation}'
+MLPEBM.dense_layer_type = 'regular'
+MLPEBM.depth = {depth}
+MLPEBM.layers = 'ResNetPreActivation'
+MLPEBM.rate = {dropout_rate}
+MLPEBM.width = {width}
+
+# Parameters for ResNetLayer:
+# ==============================================================================
+ResNetLayer.make_weight_fn = None
+ResNetLayer.normalizer = None
+
+# Parameters for TimeLimit:
+# ==============================================================================
+# None.
+
+# Parameters for train_eval:
+# ==============================================================================
+# train_eval.batch_size = {batch_size}
+# train_eval.fused_train_steps = {fused_train_steps}
+# train_eval.learning_rate = {learning_rate}
+# train_eval.replay_capacity = {replay_capacity}
+# train_eval.dataset_eval_fraction = 0.0
+# train_eval.decay_steps = 100
+# train_eval.flatten_action = True
+# train_eval.for_rnn = False
+# train_eval.goal_tolerance = 0.02
+# train_eval.image_obs = False
+# train_eval.loss_type = 'ebm'
+# train_eval.network = 'MLPEBM'
+# train_eval.num_envs = 1
+# train_eval.sequence_length = 2
+# train_eval.shared_memory_eval = False
+# train_eval.uniform_boundary_buffer = 0.05
+# train_eval.use_warmup = False
+# train_eval.viz_img = False
+
+# Parameters for wrap_env:
+# ==============================================================================
+wrap_env.auto_reset = True

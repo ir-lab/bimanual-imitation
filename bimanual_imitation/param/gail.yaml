@@ -1,0 +1,54 @@
+tasks:
+  - env: quad_insert_a0o0
+    cuts_off_on_success: true
+    data_subsamp_freq: 1
+  - env: quad_insert_aLoL
+    cuts_off_on_success: true
+    data_subsamp_freq: 1
+  - env: quad_insert_aMoM
+    cuts_off_on_success: true
+    data_subsamp_freq: 1
+
+training:
+  full_dataset_num_trajs: 200
+  dataset_num_trajs: [50, 100, 200]
+  deterministic_expert: false
+  runs: 10
+
+params:
+  reward_lr: 5e-05
+  obsnorm_mode: expertdata
+  policy_n_layers: 2
+  policy_n_units: 256
+  policy_layer_type: tanh
+  continuous_policy_type: Gaussian
+  deterministic_eval: true
+  vf_n_layers: 2
+  vf_n_units: 128
+  vf_layer_type: relu
+  reward_n_layers: 2
+  reward_n_units: 256
+  reward_layer_type: relu
+  lam: 0.99
+  policy_max_kl: 0.01
+  policy_cg_damping: 0.3
+  vf_max_kl: 0.01
+  vf_cg_damping: 0.1
+  reward_ent_reg_weight: 0.001
+  policy_ent_reg: 0.001
+  min_total_sa: 1
+  discount: 0.995
+  reward_include_time: 0
+  no_vf: 0
+  reward_type: nn
+  reward_steps: 1
+  favor_zero_expert_reward: 0
+
+options:
+  max_iter: 8000
+  num_evals: 10
+  num_rollouts_per_eval: 10
+  snapshot_save_freq: 400
+  print_freq: 1
+  validation_eval_freq: 400
+  export_data: true
